@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { HomeCardComponent } from '../home-card/home-card.component';
 import { Home } from '../home';
-import { homesData } from '../homesData';
 import { CommonModule } from '@angular/common';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-main',
@@ -13,10 +13,11 @@ import { CommonModule } from '@angular/common';
 })
 export class MainComponent {
   readonly baseUrl = 'https://angular.io/assets/images/tutorials/faa';
+  dataService = inject(DataService)
 
-  homesData: Home[] = homesData;
+  homesData: Home[] = this.dataService.getHomes();
 
-  filteredData: Home[] = homesData;
+  filteredData: Home[] = this.homesData;
 
   filterData (filter: string) {
     if (!filter) {
@@ -25,5 +26,9 @@ export class MainComponent {
     }
 
     this.filteredData = this.filteredData.filter(home => home.city.toLowerCase().includes(filter.toLowerCase()))
+  }
+
+  constructor () {
+
   }
 }
