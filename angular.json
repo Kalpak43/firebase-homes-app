@@ -88,6 +88,23 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "homes-app:build:production",
+              "serveTarget": "homes-app:serve:production"
+            },
+            "development": {
+              "buildTarget": "homes-app:build:development",
+              "serveTarget": "homes-app:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

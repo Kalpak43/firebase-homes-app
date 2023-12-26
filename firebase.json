@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "homes-app",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "homes-app-ecc89": {
+      "hosting": {
+        "homes-app": [
+          "homes-app-ecc89"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "homes-app-ecc89"
+  }
+}
