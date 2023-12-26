@@ -9,6 +9,9 @@
         <label for="">Age: </label>
         <input type="number" placeholder="Enter your Age" min="13" max="99" formControlName="age" required><br><br>
 
+        <label for="">Your Image: </label>
+        <input type="file" (change)="onChange($event)"><br><br>
+
         <label for="">Something About Yourself: </label><br>
         <textarea name="" cols="30" rows="10" formControlName="bio"></textarea><br><br>
         

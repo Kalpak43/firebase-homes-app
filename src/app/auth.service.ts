@@ -3,22 +3,53 @@ import {
   Auth,
   GoogleAuthProvider,
   browserLocalPersistence,
+  createUserWithEmailAndPassword,
   getAuth,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
 } from '@angular/fire/auth';
 import { BehaviorSubject } from 'rxjs';
+import { DataService } from './data.service';
+import { getFirestore, setDoc } from '@angular/fire/firestore';
+import { doc } from '@firebase/firestore';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   auth = inject(Auth);
+  dataService = inject(DataService);
 
   // Auth Info (Observable)
   private authInfoSubject = new BehaviorSubject<object>({ isSignedIn: false });
   authInfo$ = this.authInfoSubject.asObservable();
+
+  // Sign Up With Email and Password
+  createNewUser(userInfo: any) {
+
+    const db = getFirestore();
+
+    createUserWithEmailAndPassword(getAuth(), userInfo.email, userInfo.password).then(userCredential => {
+      if (userCredential.user !== null) {
+        const profilePhoto = this.dataService.uploadFiles(userInfo.profile, 'profile')
+        const user = {
+          name: userInfo.name,
+          age: userInfo.age,
+          bio: userInfo.bio,
+          email: userInfo.email,
+          profile: profilePhoto
+        }
+
+        setDoc(doc(db, 'users', userCredential.user.uid), {
+          ...user
+        })
+        .then(() => {
+          console.log("Sign Up Successful")
+        })
+      }
+    })
+  }
 
   // Sign In With Email and Password
   signInWithEmailAndPassword(email: string, password: string) {
