@@ -1,1 +1,195 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Be Vietnam Pro", sans-serif;
+}
+:root {
+  --primary-color: #605dc8;
+  --secondary-color: #8b89e6;
+  --accent-color: #e8e7fa;
+  --shadow-color: #e8e8e8;
+}
+
+button.primary {
+  padding: 10px;
+  border: solid 1px var(--primary-color);
+  background: var(--primary-color);
+  color: white;
+  border-radius: 8px;
+}
+
+:host {
+  --content-padding: 10px;
+}
+
+header {
+  padding-inline: 1rem;
+  box-shadow: 2px 2px 4px rgb(98, 98, 98);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.link {
+    border: 2px solid var(--primary-color);
+    border-radius: 0.4rem;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.signup-link:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+header img {
+  height: 70px;
+  margin-inline: 1rem;
+}
+
+.main {
+  padding: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.results {
+  display: grid;
+  column-gap: 14px;
+  row-gap: 14px;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 400px));
+  margin-top: 50px;
+  justify-content: space-around;
+}
+
+input, textarea {
+  border: solid 1px var(--primary-color);
+  padding: 10px;
+  border-radius: 8px;
+  margin-right: 4px;
+  display: inline-block;
+  width: 30%;
+}
+
+#search {
+    margin: 1rem;
+}
+
+button {
+  padding: 10px;
+  border: solid 1px var(--primary-color);
+  background: var(--primary-color);
+  color: white;
+  border-radius: 8px;
+}
+
+@media (min-width: 500px) and (max-width: 768px) {
+  .results {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  input[type="text"] {
+    width: 70%;
+  }
+}
+
+@media (max-width: 499px) {
+  .results {
+    grid-template-columns: 1fr;
+  }
+}
+
+.listing {
+  background: var(--accent-color);
+  border-radius: 30px;
+  padding-bottom: 30px;
+  margin-inline: auto;
+  width: 80%;
+  aspect-ratio: 4/3;
+}
+.listing-heading {
+  color: var(--primary-color);
+  padding: 10px 20px 0 20px;
+}
+.listing-photo {
+  height: 250px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 30px 30px 0 0;
+}
+.listing-location {
+  padding: 10px 20px 20px 20px;
+}
+.listing-location::before {
+  content: url("/assets/location-pin.svg") / "";
+}
+
+a {
+  padding-left: 20px;
+  text-decoration: none;
+  color: var(--primary-color);
+}
+section.listing a::after {
+  content: "\203A";
+  margin-left: 5px;
+}
+
+/* Details Page */
+
+.details .listing-photo {
+  height: 600px;
+  width: 50%;
+  object-fit: cover;
+  border-radius: 30px;
+  float: right;
+}
+
+.details .listing-heading {
+  font-size: 48pt;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.details .listing-location::before {
+  content: url("/assets/location-pin.svg") / "";
+}
+
+.details .listing-location {
+  font-size: 24pt;
+  margin-bottom: 15px;
+}
+
+.details .listing-features > .section-heading {
+  color: var(--secondary-color);
+  font-size: 24pt;
+  margin-bottom: 15px;
+}
+
+.details .listing-features {
+  margin-bottom: 20px;
+  padding-inline: 2rem;
+}
+
+.details .listing-features li {
+  font-size: 14pt;
+}
+
+.details li {
+  list-style-type: none;
+}
+
+.details article {
+  padding: 0.5rem;
+}
+
+
+
+.signup {
+    padding: 0.5rem;
+}

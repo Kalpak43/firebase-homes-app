@@ -1,0 +1,10 @@
+
+<main>
+    <input type="text" id="search" placeholder="Filter by city" #filter>
+    <button class="primary" type="button" (click)="filterData(filter.value)">Search</button>
+    <section class="main">
+        <app-home-card 
+        *ngFor="let home of filteredData"
+        [home]="home"></app-home-card>
+    </section>
+</main>
