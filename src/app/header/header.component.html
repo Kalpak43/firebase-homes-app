@@ -2,7 +2,18 @@
     <a href="/">
         <img class="brand-logo" src="../../assets/logo.png" alt="logo" aria-hidden="true">
     </a>
-    <a href="/signup" class="link">
-        <h3>sign up</h3>
-    </a>
+
+    <span *ngIf="!authInfo().isSignedIn; else elseBlock">
+        <a href="/login" class="link">
+            <h3>Login</h3>
+        </a>
+        <a href="/signup" class="link">
+            <h3>Sign up</h3>
+        </a>
+    </span>
+
+    <ng-template #elseBlock>
+        <p>{{authInfo()?.userEmail}}</p>
+        <button (click)="signOut()">Sign Out</button>
+    </ng-template>
 </header>

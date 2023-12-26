@@ -1,0 +1,13 @@
+<section class="signup">
+    <form [formGroup]="loginForm" (submit)="submitLoginForm()">
+        <label for="">Email: </label>
+        <input type="email" placeholder="Enter your Email" formControlName="email" required><br><br>
+        
+        <label for="">Password: </label>
+        <input type="text" formControlName="password"><br><br>
+
+        <button>Submit</button>
+    </form>
+    <br>
+    <button (click)="signInWithGoogle()">Sign In With Google</button>
+</section>
